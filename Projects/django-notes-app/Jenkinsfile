@@ -1,29 +1,29 @@
-@Library('Shared')_
-pipeline{
-    agent { label 'dev-server'}
-    
+pipeline {
+    agent any
     stages{
-        stage("Code clone"){
+        stage("Clone Code"){
             steps{
-                sh "whoami"
-            clone("https://github.com/LondheShubham153/django-notes-app.git","main")
+                git url: "https://github.com/LondheShubham153/django-notes-app.git", branch: "main"
             }
         }
-        stage("Code Build"){
+        stage("Build and Test"){
             steps{
-            dockerbuild("notes-app","latest")
+                sh "docker build . -t note-app-test-new"
             }
         }
-        stage("Push to DockerHub"){
+        stage("Push to Docker Hub"){
             steps{
-                dockerpush("dockerHubCreds","notes-app","latest")
+                withCredentials([usernamePassword(credentialsId:"dockerHub",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")]){
+                sh "docker tag note-app-test-new ${env.dockerHubUser}/note-app-test-new:latest"
+                sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
+                sh "docker push ${env.dockerHubUser}/note-app-test-new:latest"
+                }
             }
         }
         stage("Deploy"){
             steps{
-                deploy()
+                sh "docker-compose down && docker-compose up -d"
             }
         }
-        
     }
 }
