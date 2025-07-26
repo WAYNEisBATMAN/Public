@@ -1,18 +1,17 @@
 FROM python:3.11-slim
 
-# Set working directory
+# Set workdir
 WORKDIR /app
 
 # Install dependencies
-COPY requirements.txt ./
+COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
-COPY . .
+# Copy the rest of the backend code
+COPY backend/ ./backend/
 
-# Expose the port your app runs on
+# Set port (optional for dev)
 EXPOSE 8800
 
-# Run the Django development server
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8800"]
-
+# Default command
+CMD ["python", "backend/manage.py", "runserver", "0.0.0.0:8800"]
