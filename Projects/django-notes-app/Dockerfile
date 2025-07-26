@@ -1,17 +1,23 @@
+# Use a lightweight official Python 3.11 base image
 FROM python:3.11-slim
 
-# Set workdir
-WORKDIR /app
+# Set the working directory inside the container
+# All following commands will run relative to this path
+WORKDIR /app/backend
 
-# Install dependencies
-COPY backend/requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Copy only the requirements.txt file first to leverage Docker layer caching
+# This helps avoid reinstalling packages on every code change
+COPY requirements.txt /app/backend
 
-# Copy the rest of the backend code
-COPY backend/ ./backend/
+# Install Python dependencies listed in requirements.txt
+RUN pip install -r requirements.txt
 
-# Set port (optional for dev)
+# Copy the entire application code into the container
+COPY . /app/backend
+
+# Expose port 8800 to allow communication with the Django app
 EXPOSE 8800
 
-# Default command
-CMD ["python", "backend/manage.py", "runserver", "0.0.0.0:8800"]
+# Command to start the Django development server
+# Binds the server to 0.0.0.0 to make it accessible outside the container
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8800"]

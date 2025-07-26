@@ -1,0 +1,18 @@
+# Ingress configuration for todo application
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: todo-app-ingress
+  namespace: todo-app
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /todo
+        pathType: Prefix
+        backend:
+          service:
+            name: todo-service
+            port:
+              number: 8000

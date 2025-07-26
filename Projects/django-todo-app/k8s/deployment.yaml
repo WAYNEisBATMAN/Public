@@ -1,0 +1,33 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: todo-app
+
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: todo-deployment
+  namespace: todo-app
+spec:
+  revisionHistoryLimit: 2    # Keeps 2 old replicaSets
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: todo-app
+  template:
+    metadata:
+      labels:
+        app: todo-app
+    spec:
+      containers:
+      - name: todo-container
+        image: wayneisbatman/django-todo-app:latest
+        ports:
+        - containerPort: 8000
+

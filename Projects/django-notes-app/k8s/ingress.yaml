@@ -1,0 +1,24 @@
+
+# Ingress configuration for notes application
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: notes-app-ingress
+  namespace: notes-app
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /notes
+        pathType: Prefix
+        backend:
+          service:
+            name: notes-service
+            port:
+              number: 8800
+
+
+
+
+

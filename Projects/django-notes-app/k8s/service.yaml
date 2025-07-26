@@ -1,0 +1,17 @@
+# This file defines Kubernetes services for todo application
+kind: Service
+apiVersion: v1
+metadata:
+  name: notes-service
+  namespace: notes-app
+spec:
+  selector:
+    app: notes-app
+  type: NodePort       # Type of service, can be ClusterIP, NodePort, LoadBalancer, etc.
+  ports:
+    - protocol: TCP
+      port: 8800         # Port on the service for internal cluster access
+      targetPort: 8800   # Port on the container
+      nodePort: 30800    # Port on the service for external access (must be between 30000–32767)
+
+

@@ -1,0 +1,32 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: notes-app
+
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: notes-deployment
+  namespace: notes-app
+spec:
+  revisionHistoryLimit: 2    # Keeps 2 old replicaSets
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: notes-app
+  template:
+    metadata:
+      labels:
+        app: notes-app
+    spec:
+      containers:
+      - name: notes-container
+        image: wayneisbatman/django-notes-app:latest
+        ports:
+        - containerPort: 8800
