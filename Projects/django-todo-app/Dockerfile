@@ -10,7 +10,7 @@ RUN pip install django==3.2
 # Copy the code
 COPY . .
 
-# Apply database migrations
+# Aply database migrations
 RUN python manage.py migrate
 
 # Run the server
