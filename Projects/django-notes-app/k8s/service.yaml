@@ -12,6 +12,6 @@ spec:
     - protocol: TCP
       port: 8800         # Port on the service for internal cluster access
       targetPort: 8800   # Port on the container
-      nodePort: 30800    # Port on the service for external access (must be between 30000–32767)
+      nodePort: 30880    # Port on the service for external access (must be between 30000–32767)
 
 
