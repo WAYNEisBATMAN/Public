@@ -20,3 +20,12 @@ spec:
       target:
         type: Utilization
         averageUtilization: 5
+
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: 30   # default is 300s
+      policies:
+        - type: Percent
+          value: 100
+          periodSeconds: 15
+        
