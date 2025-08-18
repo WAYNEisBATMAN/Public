@@ -31,3 +31,23 @@ spec:
         ports:
         - containerPort: 8000
 
+        livenessProbe:
+          httpGet:
+            path: /todo
+            port: 8000
+          initialDelaySeconds: 10
+          periodSeconds: 5
+
+        readinessProbe:
+          httpGet:
+            path: /todo
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
+        startupProbe:
+          httpGet:
+            path: /todo
+            port: 8000
+          failureThreshold: 30
+          periodSeconds: 10
