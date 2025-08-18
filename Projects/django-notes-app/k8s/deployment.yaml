@@ -30,3 +30,24 @@ spec:
         image: wayneisbatman/django-notes-app:latest
         ports:
         - containerPort: 8800
+
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8800
+          initialDelaySeconds: 10
+          periodSeconds: 5
+
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8800
+          initialDelaySeconds: 5
+          periodSeconds: 5
+
+        startupProbe:
+          httpGet:
+            path: /
+            port: 8800
+          failureThreshold: 30
+          periodSeconds: 10
