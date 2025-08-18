@@ -1,0 +1,18 @@
+kind: Job
+apiVersion: batch/v1
+metadata:
+  name: busybox-job
+  namespace: nginx
+spec:
+  completions: 1   # Total number of pods to run
+  parallelism: 1   # Number of pods to run in parallel
+  template:
+    metadata:
+      labels:
+        app: busybox-job
+    spec:
+      containers:
+      - name: batch-container
+        image: busybox:latest
+        command: ["sh", "-c", "echo Hello Wayne from the Busybox Job! && sleep 20"]
+      restartPolicy: Never

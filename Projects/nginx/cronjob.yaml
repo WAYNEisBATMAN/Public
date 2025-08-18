@@ -1,0 +1,21 @@
+kind: CronJob
+apiVersion: batch/v1
+metadata:
+  name: minute-backup-cronjob
+  namespace: nginx
+spec:
+  schedule: "*/1 * * * *"  # Every minute
+  successfulJobsHistoryLimit: 2  # Keep last 3 successful jobs/ by default it is 3.
+  failedJobsHistoryLimit: 2  # Keep last failed job/ by default it is 1.
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: minute-backup
+        spec:
+          containers:
+          - name: backup-container
+            image: busybox:latest
+            command: ["sh", "-c", "date; echo Hello Wayne from the K8s CronJob!"]
+          restartPolicy: OnFailure
