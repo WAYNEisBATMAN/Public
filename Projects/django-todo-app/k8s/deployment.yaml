@@ -11,7 +11,7 @@ metadata:
   namespace: todo-app
 spec:
   revisionHistoryLimit: 2    # Keeps 2 old replicaSets
-  replicas: 2
+  replicas: 1
   strategy:
     type: RollingUpdate
     rollingUpdate:
