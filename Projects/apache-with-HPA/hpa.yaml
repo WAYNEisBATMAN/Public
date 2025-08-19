@@ -11,8 +11,7 @@ spec:
     apiVersion: apps/v1
 
   minReplicas: 1
-  maxReplicas: 6
-  maxReplicas: 7
+  maxReplicas: 5
 
   metrics:
   - type: Resource
