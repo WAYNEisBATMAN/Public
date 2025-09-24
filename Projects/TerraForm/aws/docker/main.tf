@@ -1,33 +1,17 @@
-terraform {
-  required_version = ">= 1.12.0"
-
-  required_providers {
-    docker = {
-      source  = "kreuzwerker/docker"
-      version = "~> 3.6.2" # Version of the TF docker provider, not direclty related the Docker Engine installed on ur machine.
-    }
-  }
-}
-
-
-provider "docker" {
-
-}
-
-
+# Pull the Nginx image
 resource "docker_image" "nginx" {
-  name         = "nginx:latest"
-  keep_locally = false # Terraform removes the image from the local Docker host when you destroy the resource. 
-
+  name         = var.image_name
+  keep_locally = false # Terraform deletes the image from the local Docker host on resource destroy.
 }
 
 
+# Create a Docker container from the Nginx image
 resource "docker_container" "nginx" {
   image = docker_image.nginx.name
-  name  = "nginx-tf-container"
-  ports {
-    internal = 80
-    external = 80
-  }
+  name  = var.container_name
 
+  ports {
+    internal = var.internal_port
+    external = var.external_port
+  }
 }
