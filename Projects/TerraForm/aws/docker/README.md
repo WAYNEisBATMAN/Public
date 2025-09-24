@@ -77,6 +77,9 @@ terraform-docker-nginx/
 
    **a) Local access (inside the EC2 instance)**
 
+   ```bash
+   http://localhost:8080
+   ```
    `http://localhost:8080`
 
    **b) External access (from your laptop/browser)**
