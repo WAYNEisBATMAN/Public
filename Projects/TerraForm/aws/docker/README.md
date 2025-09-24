@@ -74,12 +74,12 @@ terraform-docker-nginx/
    ```
 
 
-## 5. **Access Nginx**
+5. **Access Nginx**
 
-**a) Local access (inside the EC2 instance)**
+*a) Local access (inside the EC2 instance)*
 http://localhost:8080
 
-**b) External access (from your laptop/browser)**
+*b) External access (from your laptop/browser)*
 http://<ec2-public-ip>:80
 
 6. **Destroy resources**
