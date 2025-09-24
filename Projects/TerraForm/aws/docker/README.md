@@ -42,25 +42,25 @@ provider.tf # provider config
 
    ```
 
-2. Initialize Terraform
+2. **Initialize Terraform**
    ```bash
    terraform init
 
    ```
 
-3. Plan the deployment
+3. **Plan the deployment**
    ```bash
    terraform plan
 
    ```
 
-4. Apply the configuration
+4. **Apply the configuration**
    ```bash
    terraform apply -auto-approve
 
    ```
 
-5. Access Nginx
+5. **Access Nginx**
 
 -> Local access (inside the EC2 instance)
 If you SSH into the EC2 instance and run a browser or curl, use:
@@ -71,7 +71,7 @@ Use the public IP or public DNS of your EC2 instance:
 http://<ec2-public-ip>:80
 
 
-6. Destroy resources
+6. **Destroy resources**
    ```bash
    terraform destroy -auto-approve
 
