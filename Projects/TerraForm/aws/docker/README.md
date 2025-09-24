@@ -43,7 +43,10 @@ provider.tf # provider config
    ```
 
 2. Initialize Terraform
+   ```bash
    terraform init
+
+   ```
 
 3. Plan the deployment
    terraform plan
