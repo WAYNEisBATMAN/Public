@@ -49,10 +49,16 @@ provider.tf # provider config
    ```
 
 3. Plan the deployment
+   ```bash
    terraform plan
 
+   ```
+
 4. Apply the configuration
+   ```bash
    terraform apply -auto-approve
+
+   ```
 
 5. Access Nginx
 
@@ -66,5 +72,8 @@ http://<ec2-public-ip>:80
 
 
 6. Destroy resources
+   ```bash
+   terraform destroy -auto-approve
 
-terraform destroy -auto-approve
+   ```
+
