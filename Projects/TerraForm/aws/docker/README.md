@@ -50,7 +50,7 @@ terraform-docker-nginx/
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/<your-username>/terraform-docker-nginx.git
+   git clone https://github.com/wayneisbatman/terraform-docker-nginx.git
    cd terraform-docker-nginx
 
    ```
@@ -81,11 +81,13 @@ terraform-docker-nginx/
    http://localhost:8080
 
    ```
-   `http://localhost:8080 `
 
    **b) External access (from your laptop/browser)**
 
-   `http://<ec2-public-ip>:80`
+   ```bash
+   http://<ec2-public-ip>:80
+
+   ```
    
 6. **Destroy resources**
    ```bash
