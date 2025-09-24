@@ -34,7 +34,6 @@ terraform-docker-nginx/
 ├── outputs.tf # Terraform outputs (URLs, etc.)
 └── README.md # Project documentation
 
-
 **Explanation:**
 - `provider.tf` → Configures Terraform to use the Docker provider.
 - `variables.tf` → Declares input variables like container name and ports.
