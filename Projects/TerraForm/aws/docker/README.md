@@ -26,14 +26,14 @@ It demonstrates how Terraform can manage containerized workloads using the [Dock
 ## 📂 Project Structure
 
 This Terraform project is organized to separate concerns and improve readability:
-
+'''
 terraform-docker-nginx/
 ├── provider.tf # Docker provider configuration
 ├── variables.tf # Input variables for the project
 ├── main.tf # Docker resources (image & container)
 ├── outputs.tf # Terraform outputs (URLs, etc.)
 └── README.md # Project documentation
-
+'''
 **Explanation:**
 - `provider.tf` → Configures Terraform to use the Docker provider.
 - `variables.tf` → Declares input variables like container name and ports.
