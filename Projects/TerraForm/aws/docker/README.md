@@ -25,10 +25,11 @@ It demonstrates how Terraform can manage containerized workloads using the [Dock
 
 ## 📂 Project Structure
 
-main.tf # resources
-variables.tf # input variables
-outputs.tf # outputs
-provider.tf # provider config
+main.tf        # resources
+variables.tf   # input variables
+outputs.tf     # outputs
+provider.tf    # provider config
+
 
 ---
 
