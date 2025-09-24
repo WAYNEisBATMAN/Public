@@ -96,3 +96,9 @@ terraform-docker-nginx/
    ```
 
 ---
+
+### 🖼️ Nginx Output in Browser
+
+Here’s how Nginx looks when accessed externally via the EC2 public IP:
+
+![Nginx in Browser](nginx-browser.png)

@@ -14,4 +14,10 @@ resource "docker_container" "nginx" {
     internal = var.internal_port
     external = var.external_port
   }
+
+  lifecycle {
+    # Forces Terraform to recreate the container if the ports change
+    create_before_destroy = false
+    ignore_changes        = [] # no ignores, all changes trigger replacement
+  }
 }
