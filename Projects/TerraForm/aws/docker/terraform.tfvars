@@ -8,4 +8,4 @@ container_name  = "nginx-tf-container"
 internal_port   = 80
 
 # External port for accessing Nginx
-external_port   = 8083
+external_port   = 8080

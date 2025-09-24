@@ -85,7 +85,7 @@ terraform-docker-nginx/
    **b) External access (from your laptop/browser)**
 
    ```bash
-   http://<ec2-public-ip>:80
+   http://<ec2-public-ip>:8080
 
    ```
    
