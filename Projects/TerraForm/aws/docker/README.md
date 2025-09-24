@@ -45,7 +45,7 @@ terraform-docker-nginx/
 
 ---
 
-## ▶️ Usage
+## ▶️ Quick Start
 
 1. **Clone the repository**
 
