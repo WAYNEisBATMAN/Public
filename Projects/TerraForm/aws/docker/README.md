@@ -43,8 +43,6 @@ terraform-docker-nginx/
 - `outputs.tf` → Displays URLs or other useful outputs after `terraform apply`.
 - `README.md` → Documentation and usage instructions.
 
-
-
 ---
 
 ## ▶️ Usage
@@ -77,13 +75,11 @@ terraform-docker-nginx/
 
 5. **Access Nginx**
 
--> Local access (inside the EC2 instance)
-If you SSH into the EC2 instance and run a browser or curl, use:
-http://localhost:8080
+    a) Local access (inside the EC2 instance)
+    http://localhost:8080
 
--> External access (from your laptop / outside)
-Use the public IP or public DNS of your EC2 instance:
-http://<ec2-public-ip>:80
+    b) External access (from your laptop / outside) Use the public IP or public DNS of your EC2 instance:
+    http://<ec2-public-ip>:80
 
 
 6. **Destroy resources**
